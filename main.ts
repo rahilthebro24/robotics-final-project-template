@@ -1,4 +1,3 @@
-let hand = 0
 input.onButtonPressed(Button.A, function () {
 	
 })
@@ -12,3 +11,5 @@ input.onGesture(Gesture.Shake, function () {
         basic.showIcon(IconNames.Scissors)
     }
 })
+let hand = 0
+finch.startFinch()

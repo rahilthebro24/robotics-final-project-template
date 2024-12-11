@@ -19,6 +19,13 @@ input.onButtonPressed(Button.A, function () {
         finch.setBeak(100, 0, 0)
     }
 })
+input.onButtonPressed(Button.B, function () {
+    finch.setTurn(RLDir.Right, 360, 50)
+    finch.setMove(MoveDir.Forward, 25, 50)
+    finch.setTurn(RLDir.Right, 300, 50)
+    finch.setMove(MoveDir.Forward, 10, 50)
+    finch.setMove(MoveDir.Backward, 10, 50)
+})
 input.onGesture(Gesture.Shake, function () {
 	
 })

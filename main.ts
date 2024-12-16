@@ -1,22 +1,49 @@
+function scissors2 () {
+    basic.showIcon(IconNames.Scissors)
+    finch.setBeak(0, 100, 0)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Right, 45, 50)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Right, 45, 50)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Right, 45, 50)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Left, 16, 50)
+    finch.setMove(MoveDir.Forward, 10, 100)
+    finch.setMove(MoveDir.Backward, 10, 50)
+    finch.setTurn(RLDir.Right, 16, 50)
+    finch.setBeak(0, 100, 0)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Right, 45, 50)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Right, 45, 50)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Right, 45, 50)
+    finch.setMove(MoveDir.Forward, 5, 50)
+    finch.setTurn(RLDir.Left, 16, 50)
+    finch.setMove(MoveDir.Forward, 10, 50)
+    finch.setMove(MoveDir.Backward, 10, 50)
+}
 input.onButtonPressed(Button.A, function () {
     radio.sendString("rock paper scissors shoot")
     hand = randint(1, 3)
     if (hand == 1) {
-        basic.showLeds(`
-            . # # # .
-            # . . . #
-            # . . . #
-            # . . . #
-            . # # # .
-            `)
-        for (let index = 0; index < 1; index++) {
-            finch.startMotors(0, 50)
-            finch.stopMotors()
-        }
+        rock2()
     } else if (hand == 2) {
         Paper()
+    } else if (hand == 3) {
+        scissors2()
+    }
+    if (hand == 1 && hand == 1) {
+        basic.showString("tie")
+    } else if (hand == 2 && hand == 2) {
+        basic.showString("tie")
+    } else if (hand == 3 && hand == 3) {
+        basic.showString("tie")
+    } else if (hand > 1 && hand == 1) {
+        basic.showString("i win")
     } else {
-        scissors()
+    	
     }
     finch.stopMotors()
 })
@@ -49,31 +76,23 @@ input.onButtonPressed(Button.B, function () {
     finch.setMove(MoveDir.Forward, 10, 50)
     basic.pause(100)
 })
-function scissors () {
-    basic.showIcon(IconNames.Scissors)
-    finch.setBeak(0, 100, 0)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Right, 45, 50)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Right, 45, 50)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Right, 45, 50)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Left, 16, 50)
-    finch.setMove(MoveDir.Forward, 10, 100)
-    finch.setMove(MoveDir.Backward, 10, 50)
-    finch.setTurn(RLDir.Right, 16, 50)
-    finch.setBeak(0, 100, 0)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Right, 45, 50)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Right, 45, 50)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Right, 45, 50)
-    finch.setMove(MoveDir.Forward, 5, 50)
-    finch.setTurn(RLDir.Left, 16, 50)
+function rock2 () {
+    basic.showLeds(`
+        . # # # .
+        # . . . #
+        # . . . #
+        # . . . #
+        . # # # .
+        `)
+    finch.setBeak(0, 0, 100)
     finch.setMove(MoveDir.Forward, 10, 50)
-    finch.setMove(MoveDir.Backward, 10, 50)
+    finch.setTurn(RLDir.Right, 20, 50)
+    finch.setMove(MoveDir.Forward, 10, 50)
+    finch.setTurn(RLDir.Right, 150, 50)
+    finch.setMove(MoveDir.Forward, 10, 50)
+    finch.setTurn(RLDir.Right, 37, 50)
+    finch.setMove(MoveDir.Forward, 10, 50)
+    finch.stopMotors()
 }
 let hand = 0
 finch.startFinch()
